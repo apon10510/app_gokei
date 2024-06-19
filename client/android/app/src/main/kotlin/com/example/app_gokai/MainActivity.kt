@@ -1,4 +1,4 @@
-package com.appgokai.free
+package com.appgokei.free
 
 import io.flutter.embedding.android.FlutterActivity
 
