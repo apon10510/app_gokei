@@ -28,6 +28,18 @@ dependencies:
   webview_flutter: ^2.0.0
   device_preview: ^1.1.0
   icons_launcher: ^2.1.7
+  flutter_platform_widgets: ^7.0.0
+  flutter_emoji_feedback: ^0.3.0
+  flutter_staggered_animations: ^1.1.1
+  carousel_slider: ^4.2.1
+  lottie: ^3.1.2
+  auto_size_text: ^3.0.0
+  dotted_border: ^2.1.0
+  flutter_animate: ^4.5.0
+  badges: ^3.1.2
+  page_transition: ^2.1.0
+  in_app_review: ^2.0.9
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:
