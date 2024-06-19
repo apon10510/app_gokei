@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:page_transition/page_transition.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PlayStoreGridCard extends StatefulWidget {
@@ -29,7 +30,7 @@ class PlayStoreGridCard extends StatefulWidget {
 }
 
 class _PlayStoreGridCardState extends State<PlayStoreGridCard> {
- dynamic data;
+  dynamic data;
 
   Future<void> saveData() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
@@ -63,7 +64,6 @@ class _PlayStoreGridCardState extends State<PlayStoreGridCard> {
     getData();
   }
 
-
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -79,9 +79,22 @@ class _PlayStoreGridCardState extends State<PlayStoreGridCard> {
               padding: const EdgeInsets.only(left: 10),
               child: GestureDetector(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (b) =>
-                          WebViewPage(url: data[index][widget.appUrl])));
+                  // Navigator.of(context).push(
+                  //   MaterialPageRoute(
+                  //     builder: (b) => WebViewPage(
+                  //       url: data[index][widget.appUrl],
+                  //     ),
+                  //   ),
+                  // );
+                  Navigator.push(
+                    context,
+                    PageTransition(
+                      type: PageTransitionType.fade,
+                      child: WebViewPage(
+                        url: data[index][widget.appUrl],
+                      ),
+                    ),
+                  );
                 },
                 child: Column(
                   children: [

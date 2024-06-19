@@ -1,13 +1,12 @@
 import 'dart:io';
 import 'package:app_gokai/feature/home/view/home_page.dart';
 import 'package:app_gokai/feature/webview/package/draggable_expandable_fab.dart';
+import 'package:app_gokai/feature/webview/utils/floating_action_button_utils.dart';
+import 'package:app_gokai/feature/webview/utils/webview_util.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-
-late WebViewController _webViewController;
 
 class WebViewPage extends StatefulWidget {
   final String url;
@@ -19,21 +18,18 @@ class WebViewPage extends StatefulWidget {
 
 class WebViewPageState extends State<WebViewPage> {
   ConnectivityResult? _connectivityResult;
-
   bool _isConnected = true;
+  late WebViewController _webViewController;
 
   @override
   void initState() {
     super.initState();
-
     if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
-
     _initConnectivity();
   }
 
   Future<void> _initConnectivity() async {
     final ConnectivityResult result = await Connectivity().checkConnectivity();
-
     if (result == ConnectivityResult.none) {
       _showNoInternetSnackBar();
     }
@@ -82,7 +78,7 @@ class WebViewPageState extends State<WebViewPage> {
   void _showInternetBackSnackBar() {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        duration: Duration(milliseconds: 6500),
+        duration: Duration(milliseconds: 5000),
         content: Text('Internet connection Back'),
         backgroundColor: Colors.black,
         action: SnackBarAction(
@@ -109,7 +105,19 @@ class WebViewPageState extends State<WebViewPage> {
     } else {
       return Scaffold(
         floatingActionButtonLocation: ExpandableFloatLocation(),
-        floatingActionButton: floatingactionbuttonutils(context),
+        floatingActionButton: FloatingActionButtonUtils(
+          onReload1: () {
+            _webViewController.reload();
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (b) => HomePage(),
+              ),
+            );
+          },
+          onReload2: () {
+            _webViewController.reload();
+          },
+        ),
         body: SafeArea(
           child: WillPopScope(
             onWillPop: () async {
@@ -120,58 +128,15 @@ class WebViewPageState extends State<WebViewPage> {
                 return true;
               }
             },
-            child: WebView(
-              zoomEnabled: false,
-              initialUrl: widget.url,
-              javascriptMode: JavascriptMode.unrestricted,
+            child: WebViewUtil(
+              widget: widget,
               onWebViewCreated: (controller) {
                 _webViewController = controller;
-              },
-              navigationDelegate: (NavigationRequest request) {
-                if (request.url.startsWith('tel:')) {
-                  launchUrl(Uri.parse(request.url));
-                  return NavigationDecision.prevent;
-                }
-                if (request.url.startsWith('mailto:')) {
-                  launchUrl(Uri.parse(request.url));
-                  return NavigationDecision.prevent;
-                }
-
-                return NavigationDecision.navigate;
               },
             ),
           ),
         ),
       );
     }
-  }
-
-  ExpandableDraggableFab floatingactionbuttonutils(BuildContext context) {
-    return ExpandableDraggableFab(
-      childrenCount: 2,
-      distance: 5,
-      childrenType: ChildrenType.columnChildren,
-      childrenAlignment: Alignment.centerRight,
-      children: [
-        IconButton(
-          tooltip: 'Close',
-          onPressed: () {
-            _webViewController.reload();
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (b) => HomePage(),
-              ),
-            );
-          },
-          icon: Icon(Icons.close),
-        ),
-        IconButton(
-            tooltip: 'Refresh',
-            onPressed: () {
-              _webViewController.reload();
-            },
-            icon: Icon(Icons.refresh)),
-      ],
-    );
   }
 }

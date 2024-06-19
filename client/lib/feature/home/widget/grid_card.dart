@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:page_transition/page_transition.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class GridCard extends StatefulWidget {
@@ -22,7 +23,8 @@ class GridCard extends StatefulWidget {
     this.iconTap,
     required this.appUrl,
     // this.onTap,
-    required this.apiurl,  this.onTap,
+    required this.apiurl,
+    this.onTap,
   });
 
   @override
@@ -30,7 +32,7 @@ class GridCard extends StatefulWidget {
 }
 
 class _GridCardState extends State<GridCard> {
- dynamic data;
+  dynamic data;
 
   Future<void> saveData() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
@@ -79,9 +81,22 @@ class _GridCardState extends State<GridCard> {
               child: FadeInAnimation(
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (b) =>
-                            WebViewPage(url: data[index][widget.appUrl])));
+                    // Navigator.of(context).push(
+                    //   MaterialPageRoute(
+                    //     builder: (b) => WebViewPage(
+                    //       url: data[index][widget.appUrl],
+                    //     ),
+                    //   ),
+                    // );
+                    Navigator.push(
+                      context,
+                      PageTransition(
+                        type: PageTransitionType.fade,
+                        child: WebViewPage(
+                          url: data[index][widget.appUrl],
+                        ),
+                      ),
+                    );
                   },
                   child: Column(
                     children: [
