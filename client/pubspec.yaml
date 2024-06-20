@@ -18,7 +18,7 @@ dependencies:
 
 
   cupertino_icons: ^1.0.8 #Ios Icon #use
-  dio: ^5.4.3+1 # http package internet data
+  dio: ^5.4.3+1 # http package internet data #use
   shared_preferences: ^2.2.3 #simple data store local #use
   flutter_riverpod: ^2.5.1 # state management package
   cached_network_image: ^3.3.1 # image save ofline #use

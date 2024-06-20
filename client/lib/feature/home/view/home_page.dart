@@ -18,7 +18,16 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-    yourAppsListModel = AppListModel([]);
+    yourAppsListModel = AppListModel(
+      [
+        {
+          'appName': "Apon",
+          'appImage':
+              "https://i.postimg.cc/Mpb9y1S7/98679147-transformed-removebg-preview.png",
+          'appUrl': "https://github.com/apon10510",
+        }
+      ],
+    );
     yourAppsListModel.loadAppData();
   }
 

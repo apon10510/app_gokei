@@ -1,4 +1,5 @@
 import 'package:app_gokai/feature/webview/page/webview_page.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -115,7 +116,7 @@ class _GridCardState extends State<GridCard> {
                         // height: 70,
                         child: Padding(
                           padding: const EdgeInsets.only(left: 20),
-                          child: Text(
+                          child: AutoSizeText(
                             data[index][widget.appName],
                             // overflow: TextOverflow.ellipsis,
                             maxLines: 2,
