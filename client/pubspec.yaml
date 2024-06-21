@@ -55,6 +55,7 @@ dependencies:
   flutter_app_badger: ^1.5.0 # notication when send without seen when badget show
   tuple: ^2.0.2 # error handling
   icons_launcher: ^2.1.7 # flutter app icon #use
+  http: ^1.2.1
 
 dev_dependencies:
   flutter_test:

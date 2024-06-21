@@ -7,9 +7,10 @@ import 'package:app_gokai/feature/webview/page/webview_page.dart';
 class UserAppList extends StatefulWidget {
   final AppListModel yourAppsListModel;
 
-  const UserAppList(this.yourAppsListModel, {Key? key}) : super(key: key);
+  const UserAppList(this.yourAppsListModel, {super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _UserAppListState createState() => _UserAppListState();
 }
 
@@ -28,16 +29,16 @@ class _UserAppListState extends State<UserAppList> {
         height: 215,
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 45,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 20),
+                    padding: EdgeInsets.only(left: 20),
                     child: Text(
                       'Your App',
-                      style: const TextStyle(
+                      style: TextStyle(
                         fontSize: 24,
                         fontWeight: FontWeight.w400,
                       ),
@@ -71,22 +72,22 @@ class _UserAppListState extends State<UserAppList> {
                             showDialog(
                               context: context,
                               builder: (context) => AlertDialog(
-                                title: Text('Remove App'),
-                                content: Text(
+                                title: const Text('Remove App'),
+                                content: const Text(
                                     'Are you sure you want to remove this app?'),
                                 actions: [
                                   TextButton(
                                     onPressed: () {
                                       Navigator.of(context).pop();
                                     },
-                                    child: Text('Cancel'),
+                                    child: const Text('Cancel'),
                                   ),
                                   TextButton(
                                     onPressed: () {
                                       widget.yourAppsListModel.removeApp(index);
                                       Navigator.of(context).pop();
                                     },
-                                    child: Text('Remove'),
+                                    child: const Text('Remove'),
                                   ),
                                 ],
                               ),

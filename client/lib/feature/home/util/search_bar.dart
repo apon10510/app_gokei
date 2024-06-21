@@ -100,30 +100,28 @@ class SsearchBarStateUtil extends State<SearchBarUtil> {
           builder: (builder) {
             return Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Container(
-                child: Column(
-                  children: [
-                    ListTile(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (b) => WebViewPage(
-                              url: builder['allurl'].toString(),
-                            ),
+              child: Column(
+                children: [
+                  ListTile(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (b) => WebViewPage(
+                            url: builder['allurl'].toString(),
                           ),
-                        );
-                      },
-                      title: Text(builder['allappname'].toString()),
-                      leading: SizedBox(
-                        height: 40,
-                        width: 40,
-                        child: CachedNetworkImage(
-                          imageUrl: builder['allappimage'].toString(),
                         ),
+                      );
+                    },
+                    title: Text(builder['allappname'].toString()),
+                    leading: SizedBox(
+                      height: 40,
+                      width: 40,
+                      child: CachedNetworkImage(
+                        imageUrl: builder['allappimage'].toString(),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             );
           },
@@ -134,7 +132,7 @@ class SsearchBarStateUtil extends State<SearchBarUtil> {
         ),
       );
     },
-    icon:  Icon(Icons.search),
+    icon:  const Icon(Icons.search),
   );
   }
 }

@@ -67,7 +67,7 @@ class WebViewPageState extends State<WebViewPage> {
 
   void _showNoInternetSnackBar() {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         duration: Duration(milliseconds: 3000),
         content: Text('No internet connection'),
         backgroundColor: Colors.black,
@@ -78,8 +78,8 @@ class WebViewPageState extends State<WebViewPage> {
   void _showInternetBackSnackBar() {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        duration: Duration(milliseconds: 5000),
-        content: Text('Internet connection Back'),
+        duration: const Duration(milliseconds: 5000),
+        content: const Text('Internet connection Back'),
         backgroundColor: Colors.black,
         action: SnackBarAction(
           label: 'Reload',
@@ -110,7 +110,7 @@ class WebViewPageState extends State<WebViewPage> {
             _webViewController.reload();
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (b) => HomePage(),
+                builder: (b) => const HomePage(),
               ),
             );
           },

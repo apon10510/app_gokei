@@ -7,11 +7,11 @@ class DraggableWidget extends StatefulWidget {
   final Offset initialOffset;
 
   const DraggableWidget({
-    Key? key,
+    super.key,
     required this.child,
     required this.initialOffset,
     required this.parentKey,
-  }) : super(key: key);
+  });
 
   @override
   State<StatefulWidget> createState() => _DraggableWidgetState();
@@ -360,7 +360,7 @@ class _ExpandableDraggableFabState extends State<ExpandableDraggableFab>
                   ], shape: BoxShape.circle, color: Colors.black),
                   width: 60,
                   height: 60,
-                  child: Icon(
+                  child: const Icon(
                     Icons.menu,
                     color: Colors.white,
                   ),

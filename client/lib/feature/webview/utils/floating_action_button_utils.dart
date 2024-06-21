@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:app_gokai/feature/webview/package/draggable_expandable_fab.dart';
 import 'package:flutter/material.dart';
 

@@ -6,10 +6,10 @@ import 'package:app_gokai/feature/home/widget/alert_dialog_field.dart';
 class AddAppFloatingActionButton extends StatefulWidget {
   final AppListModel yourAppsListModel;
 
-  const AddAppFloatingActionButton(this.yourAppsListModel, {Key? key})
-      : super(key: key);
+  const AddAppFloatingActionButton(this.yourAppsListModel, {super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _AddAppFloatingActionButtonState createState() =>
       _AddAppFloatingActionButtonState();
 }
@@ -28,8 +28,8 @@ class _AddAppFloatingActionButtonState
           context: context,
           builder: (context) {
             return AlertDialog(
-              title: Text('Add Your App'),
-              content: Container(
+              title: const Text('Add Your App'),
+              content: SizedBox(
                 height: 250,
                 child: Column(
                   children: [
@@ -45,7 +45,7 @@ class _AddAppFloatingActionButtonState
                       hintText: 'App Link',
                       textEditingController: appUrl,
                     ),
-                    SizedBox(height: 15),
+                    const SizedBox(height: 15),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -79,7 +79,7 @@ class _AddAppFloatingActionButtonState
           },
         );
       },
-      child: Icon(Icons.add),
+      child: const Icon(Icons.add),
     );
   }
 }
