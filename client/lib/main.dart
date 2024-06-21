@@ -1,4 +1,5 @@
 import 'package:app_gokai/feature/home/view/home_page.dart';
+import 'package:feedback/feedback.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,10 +11,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'App Gokai',
-      home: HomePage(),
+    return BetterFeedback(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'App Gokai',
+        home: HomePage(),
+      ),
     );
   }
 }
