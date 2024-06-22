@@ -1,4 +1,5 @@
-import 'package:app_gokai/feature/home/view/home_page.dart';
+import 'package:app_gokai/feature/home/page/app_page.dart';
+import 'package:app_gokai/feature/home/page/game_page.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -46,13 +47,13 @@ class _StartPageState extends State<StartPage> {
   Widget _getSelectedWidget(int index) {
     switch (index) {
       case 0:
-        return const HomePage();
+        return const AppPage();
       case 1:
-        return const HomePage();
+        return const GamePage();
       case 2:
-        return const HomePage();
+        return const AppPage();
       default:
-        return const HomePage();
+        return const AppPage();
     }
   }
 }

@@ -1,19 +1,20 @@
 import 'dart:convert';
+// import 'package:app_gokai/feature/home/page/game_page.dart';
+import 'package:app_gokai/feature/home/page/game_page.dart';
 import 'package:app_gokai/feature/home/util/container_search_bar.dart';
-import 'package:app_gokai/feature/webview/page/webview_page.dart';
 import 'package:http/http.dart' as http;
 import 'package:app_gokai/feature/home/util/feedback_utils.dart';
 import 'package:app_gokai/feature/home/widget/list_card.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class AppPage extends StatefulWidget {
+  const AppPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<AppPage> createState() => _AppPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AppPageState extends State<AppPage> {
   dynamic data;
   Future getData() async {
     var res =
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
           ),
           SizedBox(height: 10),
           Padding(
-           padding: const EdgeInsets.only(left: 15, right: 10),
+            padding: const EdgeInsets.only(left: 15, right: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -104,7 +105,7 @@ class SigmentedButtonUtils extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const HomePage(),
+                builder: (context) => const AppPage(),
               ),
             );
             break;
@@ -112,9 +113,7 @@ class SigmentedButtonUtils extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => WebViewPage(
-                  url: 'https://pub.dev/',
-                ),
+                builder: (context) => GamePage(),
               ),
             );
             break;
