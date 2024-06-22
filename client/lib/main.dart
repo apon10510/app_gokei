@@ -1,4 +1,4 @@
-import 'package:app_gokai/feature/home/view/home_page.dart';
+import 'package:app_gokai/feature/start_page/start_page.dart';
 import 'package:feedback/feedback.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'App Gokai',
-        home: HomePage(),
+        home: StartPage(),
       ),
     );
   }

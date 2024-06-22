@@ -5,14 +5,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:search_page/search_page.dart';
 
-class SearchBarUtil extends StatefulWidget {
-  const SearchBarUtil({super.key});
+class IconSearchBarUtil extends StatefulWidget {
+  const IconSearchBarUtil({super.key});
 
   @override
-  State<SearchBarUtil> createState() => SsearchBarStateUtil();
+  State<IconSearchBarUtil> createState() => SsearchBarStateUtil();
 }
 
-class SsearchBarStateUtil extends State<SearchBarUtil> {
+class SsearchBarStateUtil extends State<IconSearchBarUtil> {
   dynamic data ;
     Future getData() async {
     var res =

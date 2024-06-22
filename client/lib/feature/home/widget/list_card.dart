@@ -251,7 +251,7 @@ class _ListCardState extends State<ListCard> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(left: 20),
+                    padding: const EdgeInsets.only(left: 15),
                     child: Text(
                       widget.listName,
                       style: const TextStyle(
@@ -267,7 +267,7 @@ class _ListCardState extends State<ListCard> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 0, top: 3),
+              padding: const EdgeInsets.only(top: 3),
               child: SizedBox(
                 height: 165,
                 child: ListView.builder(
@@ -275,42 +275,45 @@ class _ListCardState extends State<ListCard> {
                   itemCount: data == null ? 0 : data.length,
                   itemBuilder: (context, index) {
                     return Padding(
-                      padding: const EdgeInsets.only(left: 20),
+                      padding: const EdgeInsets.only(left: 0),
                       child: GestureDetector(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (b) => WebViewPage(
                                   url: data[index][widget.appUrl])));
                         },
-                        child: Column(
-                          children: [
-                            Container(
-                              alignment: Alignment.topLeft,
-                              height: 115,
-                              width: size.width * 0.27,
-                              child: CachedNetworkImage(
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 15),
+                          child: Column(
+                            children: [
+                              Container(
+                                alignment: Alignment.topLeft,
                                 height: 115,
                                 width: size.width * 0.27,
-                                imageUrl: data[index][widget.appImage],
-                              ),
-                            ),
-                            SizedBox(
-                              width: size.width * 0.27,
-                              height: 45,
-                              child: Padding(
-                                padding: const EdgeInsets.only(left: 30),
-                                child: AutoSizeText(
-                                  data[index][widget.appName],
-                                  // overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                                child: CachedNetworkImage(
+                                  height: 115,
+                                  width: size.width * 0.27,
+                                  imageUrl: data[index][widget.appImage],
                                 ),
                               ),
-                            )
-                          ],
+                              SizedBox(
+                                width: size.width * 0.27,
+                                height: 45,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(left: 30),
+                                  child: AutoSizeText(
+                                    data[index][widget.appName],
+                                    // overflow: TextOverflow.ellipsis,
+                                    maxLines: 1,
+                                    style: const TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
                         ),
                       ),
                     );
