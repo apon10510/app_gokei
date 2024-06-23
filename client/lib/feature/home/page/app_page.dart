@@ -1,9 +1,7 @@
 import 'dart:convert';
-// import 'package:app_gokai/feature/home/page/game_page.dart';
 import 'package:app_gokai/feature/home/page/game_page.dart';
-import 'package:app_gokai/feature/home/util/container_search_bar.dart';
+import 'package:app_gokai/feature/home/util/app_bar.dart';
 import 'package:http/http.dart' as http;
-import 'package:app_gokai/feature/home/util/feedback_utils.dart';
 import 'package:app_gokai/feature/home/widget/list_card.dart';
 import 'package:flutter/material.dart';
 
@@ -17,12 +15,14 @@ class AppPage extends StatefulWidget {
 class _AppPageState extends State<AppPage> {
   dynamic data;
   Future getData() async {
-    var res =
-        await http.get(Uri.parse('https://aponali.github.io/api/allapon.json'));
-    setState(() {
-      var decode = json.decode(res.body).cast<Map<String, dynamic>>();
-      data = decode;
-    });
+    try {
+      var res = await http
+          .get(Uri.parse('https://aponali.github.io/api/allapon.json'));
+      setState(() {
+        var decode = json.decode(res.body).cast<Map<String, dynamic>>();
+        data = decode;
+      });
+    } catch (e) {}
   }
 
   @override
@@ -35,25 +35,17 @@ class _AppPageState extends State<AppPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 221, 239, 242),
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 221, 239, 242),
+        actions: [
+          AppBarUtil(),
+        ],
+      ),
+      drawer: Drawer(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           SizedBox(height: 15),
-          Padding(
-            padding: const EdgeInsets.only(left: 15, right: 10),
-            child: Row(
-              children: [
-                ContainerSearchBarUtils(),
-                IconButton(
-                  onPressed: () {
-                    feedback(context);
-                  },
-                  icon: const Icon(Icons.feedback),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.only(left: 15, right: 10),
             child: Row(
