@@ -1,9 +1,9 @@
 import 'package:app_gokai/feature/home/page/app_page.dart';
 import 'package:app_gokai/feature/home/page/game_page.dart';
+import 'package:app_version_update/app_version_update.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:upgrader/upgrader.dart';
 
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
@@ -22,34 +22,59 @@ class _StartPageState extends State<StartPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return UpgradeAlert(
-      upgrader: Upgrader(),
-      dialogStyle: UpgradeDialogStyle.cupertino,
-      child: Scaffold(
-        body: SafeArea(
-          child: _getSelectedWidget(_selectedIndex),
-        ),
-        bottomNavigationBar: Container(
-          height: 110,
-          color: const Color.fromARGB(255, 221, 239, 241),
-          // color: Colors.black,
-          child: FloatingNavbar(
-            itemBorderRadius: 15,
-            borderRadius: 50,
-            elevation: 0,
-            // backgroundColor: Colors.black,
-            items: [
-              FloatingNavbarItem(icon: Icons.home, title: 'Home'),
-              FloatingNavbarItem(
-                  icon: CupertinoIcons.game_controller, title: 'Game'),
-              FloatingNavbarItem(icon: Icons.add, title: 'Chats'),
-              FloatingNavbarItem(icon: Icons.settings, title: 'Settings'),
-            ],
-            currentIndex: _selectedIndex,
-            selectedItemColor: Colors.green,
-            onTap: _onItemTapped,
+  void initState() {
+    super.initState();
+    _verifyVersion();
+  }
+
+  void _verifyVersion() async {
+    await AppVersionUpdate.checkForUpdates(
+      appleId: '284882215',
+      playStoreId: 'com.rosa.cosmetics',
+    ).then((result) async {
+      if (result.canUpdate!) {
+        await AppVersionUpdate.showAlertUpdate(
+          appVersionResult: result,
+          context: context,
+          backgroundColor: Colors.grey[200],
+          title: 'New version available',
+          titleTextStyle: const TextStyle(
+              color: Colors.black, fontWeight: FontWeight.w600, fontSize: 24.0),
+          content: 'Would you like to update your application?',
+          contentTextStyle: const TextStyle(
+            color: Colors.black,
+            fontWeight: FontWeight.w400,
           ),
+          updateButtonText: 'UPDATE',
+          cancelButtonText: 'UPDATE LATER',
+        );
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: _getSelectedWidget(_selectedIndex),
+      ),
+      bottomNavigationBar: Container(
+        height: 110,
+        color: const Color.fromARGB(255, 221, 239, 241),
+        child: FloatingNavbar(
+          itemBorderRadius: 15,
+          borderRadius: 50,
+          elevation: 0,
+          items: [
+            FloatingNavbarItem(icon: Icons.home, title: 'Home'),
+            FloatingNavbarItem(
+                icon: CupertinoIcons.game_controller, title: 'Game'),
+            FloatingNavbarItem(icon: Icons.add, title: 'Chats'),
+            FloatingNavbarItem(icon: Icons.settings, title: 'Settings'),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.green,
+          onTap: _onItemTapped,
         ),
       ),
     );
