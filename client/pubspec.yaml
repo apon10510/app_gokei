@@ -3,7 +3,7 @@ description: "A new Flutter project."
 publish_to: 'none' 
 
 
-version: 1.0.0+1
+version: 1.0.6+7
 
 environment:
   sdk: '>=3.5.0-177.0.dev <4.0.0'
@@ -22,7 +22,7 @@ dependencies:
   shared_preferences: ^2.2.3 #simple data store local #use
   flutter_riverpod: ^2.5.1 # state management package
   cached_network_image: ^3.3.1 # image save ofline #use
-  feedback: ^3.1.0 # user feedback and issue send
+  feedback: ^3.1.0 # user feedback and issue send #use
   google_fonts: ^6.2.1 # text fonts change
   day_night_switcher: ^0.2.0+1 # dark and light mode
   search_page: ^2.3.0 # search data in list #use
@@ -42,8 +42,8 @@ dependencies:
   animated_text_kit: ^4.2.2 # text animation
   badges: ^3.1.2 # notification badges
   page_transition: ^2.1.0 # animated page navigation #use
-  in_app_review: ^2.0.9 # app review
-  modal_bottom_sheet: ^3.0.0 # ui package
+  rate_my_app: ^2.2.0 # app review
+  # modal_bottom_sheet: ^3.0.0 # ui package
   # google_mobile_ads: ^2.4.0 # google ads show
   firebase_core: ^3.1.0 # firebase app connect
   firebase_remote_config: ^5.0.1 # apps ui change without update
@@ -59,6 +59,9 @@ dependencies:
   path_provider: ^2.1.3 #feedback email image sceenshot send #use
   floating_bottom_navigation_bar: ^1.5.2 # bottom nav bar #use
   app_version_update: ^5.0.1 # app new version update #use
+  # open_settings: ^2.0.2
+  # app_settings: ^5.1.1
+  settings_ui: ^2.0.2
 
 dev_dependencies:
   flutter_test:

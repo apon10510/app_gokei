@@ -41,7 +41,6 @@ class _AppPageState extends State<AppPage> {
           AppBarUtil(),
         ],
       ),
-      drawer: Drawer(),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

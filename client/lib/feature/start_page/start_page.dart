@@ -1,6 +1,8 @@
+import 'package:app_gokai/advance/app_update_check.dart';
+import 'package:app_gokai/advance/rate_app.dart';
 import 'package:app_gokai/feature/home/page/app_page.dart';
 import 'package:app_gokai/feature/home/page/game_page.dart';
-import 'package:app_version_update/app_version_update.dart';
+import 'package:app_gokai/feature/setting/pages/setting_page.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +16,7 @@ class StartPage extends StatefulWidget {
 
 class _StartPageState extends State<StartPage> {
   int _selectedIndex = 0;
-
+  // final AppRating appRating = AppRating();
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -24,32 +26,8 @@ class _StartPageState extends State<StartPage> {
   @override
   void initState() {
     super.initState();
-    _verifyVersion();
-  }
-
-  void _verifyVersion() async {
-    await AppVersionUpdate.checkForUpdates(
-      appleId: '284882215',
-      playStoreId: 'com.rosa.cosmetics',
-    ).then((result) async {
-      if (result.canUpdate!) {
-        await AppVersionUpdate.showAlertUpdate(
-          appVersionResult: result,
-          context: context,
-          backgroundColor: Colors.grey[200],
-          title: 'New version available',
-          titleTextStyle: const TextStyle(
-              color: Colors.black, fontWeight: FontWeight.w600, fontSize: 24.0),
-          content: 'Would you like to update your application?',
-          contentTextStyle: const TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.w400,
-          ),
-          updateButtonText: 'UPDATE',
-          cancelButtonText: 'UPDATE LATER',
-        );
-      }
-    });
+    // appRating.rateApp(context);
+    verifyVersion(context);
   }
 
   @override
@@ -69,7 +47,6 @@ class _StartPageState extends State<StartPage> {
             FloatingNavbarItem(icon: Icons.home, title: 'Home'),
             FloatingNavbarItem(
                 icon: CupertinoIcons.game_controller, title: 'Game'),
-            FloatingNavbarItem(icon: Icons.add, title: 'Chats'),
             FloatingNavbarItem(icon: Icons.settings, title: 'Settings'),
           ],
           currentIndex: _selectedIndex,
@@ -86,10 +63,8 @@ class _StartPageState extends State<StartPage> {
         return const AppPage();
       case 1:
         return const GamePage();
-      case 2:
-        return const GamePage();
       default:
-        return const AppPage();
+        return const SettingPage();
     }
   }
 }

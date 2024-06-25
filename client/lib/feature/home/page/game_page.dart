@@ -39,7 +39,6 @@ class _GamePageState extends State<GamePage> {
           AppBarUtil(),
         ],
       ),
-      drawer: Drawer(),
       backgroundColor: const Color.fromARGB(255, 221, 239, 242),
       body: SafeArea(
         child: Column(

@@ -2,8 +2,8 @@ import 'package:app_gokai/feature/start_page/start_page.dart';
 import 'package:feedback/feedback.dart';
 import 'package:flutter/material.dart';
 
-void main()  {
- 
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
