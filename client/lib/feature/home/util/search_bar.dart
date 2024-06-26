@@ -17,10 +17,14 @@ class SsearchBarStateUtil extends State<IconSearchBarUtil> {
     Future getData() async {
     var res =
         await http.get(Uri.parse('https://aponali.github.io/api/allapon.json'));
-    setState(() {
+   try {
+      setState(() {
       var decode = json.decode(res.body).cast<Map<String, dynamic>>();
       data = decode;
     });
+   } catch (e) {
+     
+   }
   }
 
   @override

@@ -23,7 +23,6 @@ class GridCard extends StatefulWidget {
     required this.appImage,
     this.iconTap,
     required this.appUrl,
-    // this.onTap,
     required this.apiurl,
     this.onTap,
   });
@@ -46,17 +45,14 @@ class _GridCardState extends State<GridCard> {
   }
 
   Future<void> getData() async {
-    var res =
-        await http.get(Uri.parse('https://aponali.github.io/api/allapon.json'));
+    var res = await http.get(Uri.parse('https://aponali.github.io/api/allapon.json'));
     if (res.statusCode == 200) {
       var decode = json.decode(res.body) as List;
       setState(() {
         data = decode;
       });
-      SharedPreferences sharedPreferences =
-          await SharedPreferences.getInstance();
-      sharedPreferences.setStringList(
-          'AppData', decode.map((e) => json.encode(e)).toList());
+      SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+      sharedPreferences.setStringList('AppData', decode.map((e) => json.encode(e)).toList());
     }
   }
 
@@ -71,7 +67,6 @@ class _GridCardState extends State<GridCard> {
   Widget build(BuildContext context) {
     return AnimationLimiter(
       child: GridView.builder(
-        // scrollDirection: Axis.horizontal,
         itemCount: data == null ? 0 : data.length,
         itemBuilder: (context, index) {
           return AnimationConfiguration.staggeredList(
@@ -82,13 +77,6 @@ class _GridCardState extends State<GridCard> {
               child: FadeInAnimation(
                 child: GestureDetector(
                   onTap: () {
-                    // Navigator.of(context).push(
-                    //   MaterialPageRoute(
-                    //     builder: (b) => WebViewPage(
-                    //       url: data[index][widget.appUrl],
-                    //     ),
-                    //   ),
-                    // );
                     Navigator.push(
                       context,
                       PageTransition(
@@ -100,9 +88,10 @@ class _GridCardState extends State<GridCard> {
                     );
                   },
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
-                        alignment: Alignment.topLeft,
+                        alignment: Alignment.center,
                         height: 85,
                         width: 100,
                         child: CachedNetworkImage(
@@ -113,13 +102,12 @@ class _GridCardState extends State<GridCard> {
                       ),
                       SizedBox(
                         width: 100,
-                        // height: 70,
                         child: Padding(
-                          padding: const EdgeInsets.only(left: 20),
+                          padding: const EdgeInsets.only(top: 8.0),
                           child: AutoSizeText(
                             data[index][widget.appName],
-                            // overflow: TextOverflow.ellipsis,
                             maxLines: 2,
+                            textAlign: TextAlign.center,
                             style: const TextStyle(
                               fontSize: 14.7,
                               fontWeight: FontWeight.w500,
@@ -134,8 +122,10 @@ class _GridCardState extends State<GridCard> {
             ),
           );
         },
-        gridDelegate:
-            const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 3,
+          childAspectRatio: 0.7,
+        ),
       ),
     );
   }

@@ -16,7 +16,7 @@ class StartPage extends StatefulWidget {
 
 class _StartPageState extends State<StartPage> {
   int _selectedIndex = 0;
-  // final AppRating appRating = AppRating();
+  final AppRating appRating = AppRating();
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
@@ -26,7 +26,7 @@ class _StartPageState extends State<StartPage> {
   @override
   void initState() {
     super.initState();
-    // appRating.rateApp(context);
+    appRating.rateApp(context);
     verifyVersion(context);
   }
 

@@ -10,18 +10,23 @@ class ContainerSearchBarUtils extends StatefulWidget {
   const ContainerSearchBarUtils({super.key});
 
   @override
-  State<ContainerSearchBarUtils> createState() => _ContainerSearchBarUtilsState();
+  State<ContainerSearchBarUtils> createState() =>
+      _ContainerSearchBarUtilsState();
 }
 
 class _ContainerSearchBarUtilsState extends State<ContainerSearchBarUtils> {
-      dynamic data ;
-    Future getData() async {
+  dynamic data;
+  Future getData() async {
     var res =
         await http.get(Uri.parse('https://aponali.github.io/api/allapon.json'));
-    setState(() {
-      var decode = json.decode(res.body).cast<Map<String, dynamic>>();
-      data = decode;
-    });
+    try {
+      setState(() {
+        var decode = json.decode(res.body).cast<Map<String, dynamic>>();
+        data = decode;
+      });
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
@@ -29,6 +34,7 @@ class _ContainerSearchBarUtilsState extends State<ContainerSearchBarUtils> {
     super.initState();
     getData();
   }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
