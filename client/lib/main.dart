@@ -1,8 +1,13 @@
 import 'package:app_gokai/feature/start_page/start_page.dart';
+import 'package:app_gokai/firebase_options.dart';
 import 'package:feedback/feedback.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }

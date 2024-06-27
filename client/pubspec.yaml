@@ -18,41 +18,41 @@ dependencies:
 
 
   cupertino_icons: ^1.0.8 #Ios Icon #use
-  dio: ^5.4.3+1 # http package internet data #use
+  # dio: ^5.4.3+1 # http package internet data #use
   shared_preferences: ^2.2.3 #simple data store local #use
   flutter_riverpod: ^2.5.1 # state management package
   cached_network_image: ^3.3.1 # image save ofline #use
   feedback: ^3.1.0 # user feedback and issue send #use
-  google_fonts: ^6.2.1 # text fonts change
+  # google_fonts: ^6.2.1 # text fonts change
   day_night_switcher: ^0.2.0+1 # dark and light mode
   search_page: ^2.3.0 # search data in list #use
-  flutter_staggered_grid_view: ^0.7.0 # different size list show 
+  # flutter_staggered_grid_view: ^0.7.0 # different size list show 
   url_launcher: ^6.3.0 # click to navigate #use
   connectivity_plus: ^5.0.0 # internet check #use
   webview_flutter: ^2.0.0 # website show #use
-  device_preview: ^1.1.0 # remove production time 
-  gap: ^3.0.1 # ui helper
-  flutter_platform_widgets: ^7.0.0 # the package use ios style show 
-  flutter_emoji_feedback: ^0.3.0 # when user exit apps then show
+  # device_preview: ^1.1.0 # remove production time 
+  # gap: ^3.0.1 # ui helper
+  # flutter_platform_widgets: ^7.0.0 # the package use ios style show 
+  # flutter_emoji_feedback: ^0.3.0 # when user exit apps then show
   lottie: ^3.1.2 # lottie animation show #use
   auto_size_text: ^3.0.0 # when many text then text size is smail #use
   # dotted_border: ^2.1.0 # dot border make time
   flutter_staggered_animations: ^1.1.1 # list animation
-  flutter_animate: ^4.5.0 # optional animation
-  animated_text_kit: ^4.2.2 # text animation
+  # flutter_animate: ^4.5.0 # optional animation
+  # animated_text_kit: ^4.2.2 # text animation
   badges: ^3.1.2 # notification badges
   page_transition: ^2.1.0 # animated page navigation #use
   rate_my_app: ^2.2.0 # app review
   # modal_bottom_sheet: ^3.0.0 # ui package
   # google_mobile_ads: ^2.4.0 # google ads show
-  firebase_core: ^3.1.0 # firebase app connect
+  firebase_core: ^3.1.0 # firebase app connect #use
   firebase_remote_config: ^5.0.1 # apps ui change without update
   cloud_firestore: ^5.0.1 # extra website add user send
-  in_app_purchase: ^3.2.0 # don't show ads plz buy apps
-  flutter_donation_buttons: ^0.4.10 # or donation remove ads
+  # in_app_purchase: ^3.2.0 # don't show ads plz buy apps
+  # flutter_donation_buttons: ^0.4.10 # or donation remove ads
   awesome_notifications: ^0.9.3+1 # apps notication send
-  flutter_app_badger: ^1.5.0 # notication when send without seen when badget show
-  tuple: ^2.0.2 # error handling
+  flutter_dynamic_icon: ^2.1.0 # notication when send without seen when badget show
+  # tuple: ^2.0.2 # error handling
   icons_launcher: ^2.1.7 # flutter app icon #use
   http: ^1.2.1 # http package internet data #use
   flutter_email_sender: ^5.1.0 #feedback email send #use

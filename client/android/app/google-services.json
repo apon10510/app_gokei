@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1068912252303",
+    "project_id": "cortoonpur",
+    "storage_bucket": "cortoonpur.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068912252303:android:995692d39a6621b43d67fa",
+        "android_client_info": {
+          "package_name": "com.apon.sakib"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1068912252303-9ofu8j55ualitj1h5fpgehfrrdluv7r1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTyPhiga18p0A3XDYIermBTGfp9hJANqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1068912252303-9ofu8j55ualitj1h5fpgehfrrdluv7r1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068912252303:android:1cdb52c69ecfe5b13d67fa",
+        "android_client_info": {
+          "package_name": "com.appgokei.free"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1068912252303-9ofu8j55ualitj1h5fpgehfrrdluv7r1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTyPhiga18p0A3XDYIermBTGfp9hJANqU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1068912252303-9ofu8j55ualitj1h5fpgehfrrdluv7r1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
