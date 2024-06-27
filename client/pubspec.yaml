@@ -23,7 +23,7 @@ dependencies:
   flutter_riverpod: ^2.5.1 # state management package
   cached_network_image: ^3.3.1 # image save ofline #use
   feedback: ^3.1.0 # user feedback and issue send #use
-  # google_fonts: ^6.2.1 # text fonts change
+  google_fonts: ^6.2.1 # text fonts change
   day_night_switcher: ^0.2.0+1 # dark and light mode
   search_page: ^2.3.0 # search data in list #use
   # flutter_staggered_grid_view: ^0.7.0 # different size list show 

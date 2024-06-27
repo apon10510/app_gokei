@@ -41,30 +41,32 @@ class _AppPageState extends State<AppPage> {
           AppBarUtil(),
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          SizedBox(height: 15),
-          Padding(
-            padding: const EdgeInsets.only(left: 15, right: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Container(width: 200, child: SigmentedButtonUtils()),
-                SizedBox(
-                  width: 10,
-                ),
-              ],
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            SizedBox(height: 15),
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Container(width: 200, child: SigmentedButtonUtils()),
+                  SizedBox(
+                    width: 10,
+                  ),
+                ],
+              ),
             ),
-          ),
-          ListCard(
-            listName: 'Popular',
-            appName: 'allappname',
-            appImage: 'allappimage',
-            apiurl: 'https://aponali.github.io/api/allapon.json',
-            appUrl: 'allurl',
-          ),
-        ],
+            ListCard(
+              listName: 'Popular',
+              appName: 'allappname',
+              appImage: 'allappimage',
+              apiurl: 'https://aponali.github.io/api/allapon.json',
+              appUrl: 'allurl',
+            ),
+          ],
+        ),
       ),
     );
   }
