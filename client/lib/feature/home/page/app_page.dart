@@ -22,7 +22,9 @@ class _AppPageState extends State<AppPage> {
         var decode = json.decode(res.body).cast<Map<String, dynamic>>();
         data = decode;
       });
-    } catch (e) {}
+    } catch (e) {
+      //
+    }
   }
 
   @override
@@ -38,21 +40,21 @@ class _AppPageState extends State<AppPage> {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         backgroundColor: const Color.fromARGB(255, 221, 239, 242),
-        actions: [
+        actions: const [
           AppBarUtil(),
         ],
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(height: 15),
             Padding(
-              padding: const EdgeInsets.only(left: 15, right: 10),
+              padding: EdgeInsets.only(left: 15, right: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Container(width: 200, child: SigmentedButtonUtils()),
+                  SizedBox(width: 200, child: SigmentedButtonUtils()),
                   SizedBox(
                     width: 10,
                   ),
@@ -81,14 +83,14 @@ class SigmentedButtonUtils extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SegmentedButton<String>(
-      segments: <ButtonSegment<String>>[
+      segments: const <ButtonSegment<String>>[
         ButtonSegment<String>(
           value: 'Apps',
-          label: const Text('Apps'),
+          label: Text('Apps'),
         ),
         ButtonSegment<String>(
           value: 'Game',
-          label: const Text('Game'),
+          label: Text('Game'),
         ),
       ],
       selected: const <String>{'Apps'},
@@ -107,7 +109,7 @@ class SigmentedButtonUtils extends StatelessWidget {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => GamePage(),
+                builder: (context) => const GamePage(),
               ),
             );
             break;

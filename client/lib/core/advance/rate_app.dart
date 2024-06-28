@@ -13,18 +13,11 @@ class AppRating {
     );
 
     rateMyApp.init().then((_) {
-      print('RateMyApp initialized');
-
       if (rateMyApp.shouldOpenDialog) {
-        print('RateMyApp dialog should open');
-
+        // ignore: use_build_context_synchronously
         _showCustomRateDialog(context, rateMyApp);
-      } else {
-        print('RateMyApp dialog should not open');
-      }
-    }).catchError((error) {
-      print('RateMyApp initialization error: $error');
-    });
+      } else {}
+    }).catchError((error) {});
   }
 
   void _showCustomRateDialog(BuildContext context, RateMyApp rateMyApp) {
@@ -34,12 +27,12 @@ class AppRating {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Enjoy Our App'),
+          title: const Text('Enjoy Our App'),
           content: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Text('If you like the app, please rate us on Google Play.'),
-              SizedBox(height: 16),
+              const Text('If you like the app, please rate us on Google Play.'),
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: List.generate(5, (index) {
@@ -68,14 +61,14 @@ class AppRating {
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('Later'),
+              child: const Text('Later'),
               onPressed: () {
                 rateMyApp.callEvent(RateMyAppEventType.laterButtonPressed);
                 Navigator.of(context).pop();
               },
             ),
             TextButton(
-              child: Text('No thanks'),
+              child: const Text('No thanks'),
               onPressed: () {
                 rateMyApp.callEvent(RateMyAppEventType.noButtonPressed);
                 Navigator.of(context).pop();

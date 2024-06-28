@@ -21,12 +21,12 @@ class SettingCard extends StatelessWidget {
             child: ListTile(
               title: Text(
                 settingText,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              trailing: Icon(Icons.navigate_next),
+              trailing: const Icon(Icons.navigate_next),
             ),
           ),
         ),

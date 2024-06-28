@@ -7,6 +7,8 @@ import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.da
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+enum NavigationItem { home, game, settings }
+
 class StartPage extends StatefulWidget {
   const StartPage({super.key});
 
@@ -15,11 +17,18 @@ class StartPage extends StatefulWidget {
 }
 
 class _StartPageState extends State<StartPage> {
-  int _selectedIndex = 0;
+  NavigationItem _selectedItem = NavigationItem.home;
   final AppRating appRating = AppRating();
+
+  final List<FloatingNavbarItem> _navigationItems = [
+    FloatingNavbarItem(icon: Icons.home, title: 'Home'),
+    FloatingNavbarItem(icon: CupertinoIcons.game_controller, title: 'Game'),
+    FloatingNavbarItem(icon: Icons.settings, title: 'Settings'),
+  ];
+
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index;
+      _selectedItem = NavigationItem.values[index];
     });
   }
 
@@ -34,7 +43,7 @@ class _StartPageState extends State<StartPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: _getSelectedWidget(_selectedIndex),
+        child: _getSelectedWidget(_selectedItem),
       ),
       bottomNavigationBar: Container(
         height: 110,
@@ -43,13 +52,8 @@ class _StartPageState extends State<StartPage> {
           itemBorderRadius: 15,
           borderRadius: 50,
           elevation: 0,
-          items: [
-            FloatingNavbarItem(icon: Icons.home, title: 'Home'),
-            FloatingNavbarItem(
-                icon: CupertinoIcons.game_controller, title: 'Game'),
-            FloatingNavbarItem(icon: Icons.settings, title: 'Settings'),
-          ],
-          currentIndex: _selectedIndex,
+          items: _navigationItems,
+          currentIndex: _selectedItem.index,
           selectedItemColor: Colors.green,
           onTap: _onItemTapped,
         ),
@@ -57,14 +61,26 @@ class _StartPageState extends State<StartPage> {
     );
   }
 
-  Widget _getSelectedWidget(int index) {
-    switch (index) {
-      case 0:
+  Widget _getSelectedWidget(NavigationItem item) {
+    switch (item) {
+      case NavigationItem.home:
         return const AppPage();
-      case 1:
+      case NavigationItem.game:
         return const GamePage();
       default:
         return const SettingPage();
     }
   }
 }
+
+// class AppRatingHandler {
+//   static void rateApp(BuildContext context) {
+//     // Implement your app rating logic here
+//   }
+// }
+
+// class AppUpdateCheckHandler {
+//   static void verifyVersion(BuildContext context) {
+//     // Implement your app update check logic here
+//   }
+// }

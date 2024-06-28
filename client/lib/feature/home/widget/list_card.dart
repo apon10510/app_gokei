@@ -115,7 +115,7 @@ class _ListCardState extends State<ListCard> {
                             width: size.width * 0.27,
                             imageUrl: data[index][widget.appImage],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 8,
                           ),
                           SizedBox(

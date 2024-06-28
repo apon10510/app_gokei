@@ -9,7 +9,7 @@ void verifyVersion(BuildContext context ) async {
     if (result.canUpdate!) {
       await AppVersionUpdate.showAlertUpdate(
         appVersionResult: result,
-        context: context,
+        // context: context,
         backgroundColor: Colors.grey[200],
         title: 'New version available',
         titleTextStyle: const TextStyle(

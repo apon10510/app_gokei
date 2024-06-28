@@ -25,7 +25,7 @@ class _ContainerSearchBarUtilsState extends State<ContainerSearchBarUtils> {
         data = decode;
       });
     } catch (e) {
-      print(e);
+      // print(e);
     }
   }
 
@@ -88,17 +88,17 @@ class _ContainerSearchBarUtilsState extends State<ContainerSearchBarUtils> {
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
         ),
-        child: Row(
+        child: const Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 10),
+              padding: EdgeInsets.only(left: 10),
               child: Text(
                 'Search Here',
                 style: TextStyle(fontSize: 15, color: Colors.grey),
               ),
             ),
-            const IconSearchBarUtil(),
+            IconSearchBarUtil(),
           ],
         ),
       ),

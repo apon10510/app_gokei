@@ -23,7 +23,7 @@ class SsearchBarStateUtil extends State<IconSearchBarUtil> {
       data = decode;
     });
    } catch (e) {
-     
+     //
    }
   }
 

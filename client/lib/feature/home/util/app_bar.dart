@@ -8,7 +8,7 @@ class AppBarUtil extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        ContainerSearchBarUtils(),
+        const ContainerSearchBarUtils(),
         IconButton(
           onPressed: () {
             // feedback(context);

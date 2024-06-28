@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:app_gokai/feature/start_page/start_page.dart';
+import 'package:app_gokai/feature/home/page/app_page.dart';
 import 'package:app_gokai/feature/webview/package/draggable_expandable_fab.dart';
 import 'package:app_gokai/feature/webview/utils/floating_action_button_utils.dart';
 import 'package:app_gokai/feature/webview/utils/webview_util.dart';
@@ -110,7 +110,7 @@ class WebViewPageState extends State<WebViewPage> {
             _webViewController.reload();
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (b) => const StartPage(),
+                builder: (b) => const AppPage(),
               ),
             );
           },
@@ -119,6 +119,7 @@ class WebViewPageState extends State<WebViewPage> {
           },
         ),
         body: SafeArea(
+          // ignore: deprecated_member_use
           child: WillPopScope(
             onWillPop: () async {
               if (await _webViewController.canGoBack()) {

@@ -21,7 +21,7 @@ class SettingPage extends StatelessWidget {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (builder) => AppsMissingAddPage(),
+                      builder: (builder) => const AppsMissingAddPage(),
                     ),
                   );
                 },

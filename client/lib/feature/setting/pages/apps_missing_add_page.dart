@@ -29,18 +29,18 @@ class _AppsMissingAddPageState extends State<AppsMissingAddPage> {
             Text(
               'This apps are very new. So many apps are missing. You can help us by adding these missing apps ? We will add these apps in the next update.',
               style: GoogleFonts.acme(
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.w700,
                 ),
               ),
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             SettingFieldWidget(
               hintText: 'Adds Missing App Name only',
               textEditingController: appsAdd,
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             SettingFieldButtonWidget(
               buttonText: 'Add',
               onTap: () async {
@@ -51,8 +51,9 @@ class _AppsMissingAddPageState extends State<AppsMissingAddPage> {
                     .addQuizCategory(addQuiz, 'Missing')
                     .then(
                   (value) {
+                    // ignore: use_build_context_synchronously
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
+                      const SnackBar(
                         content: Text('Upload Complate'),
                         duration: Duration(seconds: 3),
                       ),

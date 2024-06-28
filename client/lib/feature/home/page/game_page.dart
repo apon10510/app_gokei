@@ -21,7 +21,9 @@ class _GamePageState extends State<GamePage> {
         var decode = json.decode(res.body).cast<Map<String, dynamic>>();
         data = decode;
       });
-    } catch (e) {}
+    } catch (e) {
+      //
+    }
   }
 
   @override
@@ -35,18 +37,18 @@ class _GamePageState extends State<GamePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 221, 239, 242),
-        actions: [
+        actions: const [
           AppBarUtil(),
         ],
       ),
       backgroundColor: const Color.fromARGB(255, 221, 239, 242),
-      body: SafeArea(
+      body: const SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             SizedBox(height: 15),
             Padding(
-              padding: const EdgeInsets.only(left: 15, right: 10),
+              padding: EdgeInsets.only(left: 15, right: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -79,14 +81,14 @@ class _SigmentedButtonUtilsState extends State<SigmentedButtonUtils> {
   @override
   Widget build(BuildContext context) {
     return SegmentedButton<String>(
-      segments: [
+      segments: const [
         ButtonSegment<String>(
           value: 'Apps',
-          label: const Text('Apps'),
+          label: Text('Apps'),
         ),
         ButtonSegment<String>(
           value: 'Game',
-          label: const Text('Game'),
+          label: Text('Game'),
         ),
       ],
       selected: selected,
@@ -105,7 +107,7 @@ class _SigmentedButtonUtilsState extends State<SigmentedButtonUtils> {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => GamePage(),
+                builder: (context) => const GamePage(),
               ),
             );
             break;
