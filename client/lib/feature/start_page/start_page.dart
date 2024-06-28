@@ -1,5 +1,5 @@
-import 'package:app_gokai/advance/app_update_check.dart';
-import 'package:app_gokai/advance/rate_app.dart';
+import 'package:app_gokai/core/advance/app_update_check.dart';
+import 'package:app_gokai/core/advance/rate_app.dart';
 import 'package:app_gokai/feature/home/page/app_page.dart';
 import 'package:app_gokai/feature/home/page/game_page.dart';
 import 'package:app_gokai/feature/setting/pages/setting_page.dart';

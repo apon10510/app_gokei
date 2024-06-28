@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 class AppRating {
   rateApp(BuildContext context) {
     final RateMyApp rateMyApp = RateMyApp(
-      googlePlayIdentifier: 'com.rosa.cosmetics',
+      googlePlayIdentifier: 'com.appgokei.free',
       minDays: 2,
       minLaunches: 3,
       remindDays: 2,

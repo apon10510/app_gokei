@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 void verifyVersion(BuildContext context ) async {
   await AppVersionUpdate.checkForUpdates(
     appleId: '284882215',
-    playStoreId: 'com.rosa.cosmetics',
+    playStoreId: 'com.appgokei.free',
   ).then((result) async {
     if (result.canUpdate!) {
       await AppVersionUpdate.showAlertUpdate(
