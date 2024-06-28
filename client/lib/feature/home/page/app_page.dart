@@ -36,6 +36,7 @@ class _AppPageState extends State<AppPage> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 221, 239, 242),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: const Color.fromARGB(255, 221, 239, 242),
         actions: [
           AppBarUtil(),

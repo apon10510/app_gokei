@@ -47,7 +47,9 @@ class _AppsMissingAddPageState extends State<AppsMissingAddPage> {
                 Map<String, dynamic> addQuiz = {
                   'Apps': appsAdd.text,
                 };
-                await DataBaseMethods().addQuizCategory(addQuiz, 'Missing').then(
+                await DataBaseMethods()
+                    .addQuizCategory(addQuiz, 'Missing')
+                    .then(
                   (value) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
@@ -57,6 +59,9 @@ class _AppsMissingAddPageState extends State<AppsMissingAddPage> {
                     );
                   },
                 );
+                setState(() {
+                  appsAdd.text = '';
+                });
               },
             )
           ],
