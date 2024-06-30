@@ -59,7 +59,7 @@ dependencies:
   # firebase_analytics: ^11.1.0 # user location track
   # firebase_crashlytics: ^4.0.2 # when apps crash the message send apps developer
   # # home_widget: ^0.6.0 # apps smail version show mobile home # the package build time show error
-  # quick_actions: ^1.0.7 # when user long press apps icon the quick page show
+  quick_actions: ^1.0.7 # when user long press apps icon the quick page show
   # flutter_dynamic_icon: ^2.1.0 # notication when send without seen when badget show
   # flutter_local_notifications: ^17.2.0
 

@@ -1,4 +1,5 @@
 import 'package:app_gokai/core/advance/app_update_check.dart';
+import 'package:app_gokai/core/advance/quick_action.dart';
 import 'package:app_gokai/core/advance/rate_app.dart';
 import 'package:app_gokai/feature/home/page/app_page.dart';
 import 'package:app_gokai/feature/home/page/game_page.dart';
@@ -36,6 +37,7 @@ class _StartPageState extends State<StartPage> {
   void initState() {
     super.initState();
     appRating.rateApp(context);
+    initializeAction(context);
     verifyVersion(context);
   }
 
@@ -72,15 +74,3 @@ class _StartPageState extends State<StartPage> {
     }
   }
 }
-
-// class AppRatingHandler {
-//   static void rateApp(BuildContext context) {
-//     // Implement your app rating logic here
-//   }
-// }
-
-// class AppUpdateCheckHandler {
-//   static void verifyVersion(BuildContext context) {
-//     // Implement your app update check logic here
-//   }
-// }
