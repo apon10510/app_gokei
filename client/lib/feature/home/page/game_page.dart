@@ -21,9 +21,8 @@ class _GamePageState extends State<GamePage> {
         ],
       ),
       backgroundColor: const Color.fromARGB(255, 221, 239, 242),
-      body: const SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+      body:  SafeArea(
+        child: ListView(
           children: [
             SizedBox(height: 15),
             Padding(
