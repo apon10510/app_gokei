@@ -1,3 +1,4 @@
+import 'package:app_gokai/feature/full_screen/pages/app/full_page_application.dart';
 import 'package:app_gokai/feature/webview/page/webview_page.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -11,14 +12,14 @@ class ListCard extends StatefulWidget {
   final String appName;
   final String appImage;
   final String apiurl;
-  final Function()? iconTap;
+  // final Function() iconTap;
   final String appUrl;
   const ListCard({
     super.key,
     required this.listName,
     required this.appName,
     required this.appImage,
-    this.iconTap,
+    // required this.iconTap,
     required this.appUrl,
     required this.apiurl,
   });
@@ -41,14 +42,16 @@ class _ListCardState extends State<ListCard> {
   }
 
   Future<void> getData() async {
-    var res = await http.get(Uri.parse('https://aponali.github.io/api/allapon.json'));
+    var res = await http.get(Uri.parse(widget.apiurl));
     if (res.statusCode == 200) {
       var decode = json.decode(res.body) as List;
       setState(() {
         data = decode;
       });
-      SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-      sharedPreferences.setStringList('AppData', decode.map((e) => json.encode(e)).toList());
+      SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
+      sharedPreferences.setStringList(
+          'AppData', decode.map((e) => json.encode(e)).toList());
     }
   }
 
@@ -84,7 +87,19 @@ class _ListCardState extends State<ListCard> {
                     ),
                   ),
                   IconButton(
-                    onPressed: widget.iconTap,
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (builder) => FullPageApplication(
+                            listName: widget.listName,
+                            appName: widget.appName,
+                            appImage: widget.appImage,
+                            apiurl: widget.apiurl,
+                            appUrl: widget.appUrl,
+                          ),
+                        ),
+                      );
+                    },
                     icon: const Icon(Icons.navigate_next, size: 40),
                   ),
                 ],

@@ -15,11 +15,11 @@ dependencies:
   cupertino_icons: ^1.0.8 #Ios Icon #use
   # dio: ^5.4.3+1 # http package internet data #use
   shared_preferences: ^2.2.3 #simple data store local #use
-  flutter_riverpod: ^2.5.1 # state management package
+  # flutter_riverpod: ^2.5.1 # state management package
   cached_network_image: ^3.3.1 # image save ofline #use
   feedback: ^3.1.0 # user feedback and issue send #use
   google_fonts: ^6.2.1 # text fonts change
-  day_night_switcher: ^0.2.0+1 # dark and light mode
+  # day_night_switcher: ^0.2.0+1 # dark and light mode
   search_page: ^2.3.0 # search data in list #use
   # flutter_staggered_grid_view: ^0.7.0 # different size list show 
   url_launcher: ^6.3.0 # click to navigate #use
@@ -35,14 +35,14 @@ dependencies:
   flutter_staggered_animations: ^1.1.1 # list animation
   # flutter_animate: ^4.5.0 # optional animation
   # animated_text_kit: ^4.2.2 # text animation
-  badges: ^3.1.2 # notification badges
+  # badges: ^3.1.2 # notification badges
   page_transition: ^2.1.0 # animated page navigation #use
   rate_my_app: ^2.2.0 # app review
   # modal_bottom_sheet: ^3.0.0 # ui package
   # google_mobile_ads: ^2.4.0 # google ads show
   # in_app_purchase: ^3.2.0 # don't show ads plz buy apps
   # flutter_donation_buttons: ^0.4.10 # or donation remove ads
-  awesome_notifications: ^0.9.3+1 # apps notication send
+  # awesome_notifications: ^0.9.3+1 # apps notication send
   # tuple: ^2.0.2 # error handling
   icons_launcher: ^2.1.7 # flutter app icon #use
   http: ^1.2.1 # http package internet data #use
@@ -54,7 +54,7 @@ dependencies:
   # app_settings: ^5.1.1
   # settings_ui: ^2.0.2
   firebase_core: ^3.1.1 # firebase connect the project
-  firebase_remote_config: ^5.0.1 # apps ui change without update
+  # firebase_remote_config: ^5.0.1 # apps ui change without update
   cloud_firestore: ^5.0.1 # extra website add user send
   # firebase_analytics: ^11.1.0 # user location track
   # firebase_crashlytics: ^4.0.2 # when apps crash the message send apps developer

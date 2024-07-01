@@ -45,14 +45,16 @@ class _GridCardState extends State<GridCard> {
   }
 
   Future<void> getData() async {
-    var res = await http.get(Uri.parse('https://aponali.github.io/api/allapon.json'));
+    var res = await http.get(Uri.parse(widget.apiurl));
     if (res.statusCode == 200) {
       var decode = json.decode(res.body) as List;
       setState(() {
         data = decode;
       });
-      SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-      sharedPreferences.setStringList('AppData', decode.map((e) => json.encode(e)).toList());
+      SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
+      sharedPreferences.setStringList(
+          'AppData', decode.map((e) => json.encode(e)).toList());
     }
   }
 

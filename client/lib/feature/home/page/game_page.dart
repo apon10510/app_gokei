@@ -1,7 +1,5 @@
-import 'dart:convert';
 import 'package:app_gokai/feature/home/page/app_page.dart';
 import 'package:app_gokai/feature/home/util/app_bar.dart';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
 class GamePage extends StatefulWidget {
@@ -12,25 +10,6 @@ class GamePage extends StatefulWidget {
 }
 
 class _GamePageState extends State<GamePage> {
-  dynamic data;
-  Future getData() async {
-    try {
-      var res = await http
-          .get(Uri.parse('https://aponali.github.io/api/allapon.json'));
-      setState(() {
-        var decode = json.decode(res.body).cast<Map<String, dynamic>>();
-        data = decode;
-      });
-    } catch (e) {
-      //
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getData();
-  }
 
   @override
   Widget build(BuildContext context) {

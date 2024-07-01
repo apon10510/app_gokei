@@ -1,7 +1,5 @@
-import 'dart:convert';
 import 'package:app_gokai/feature/home/page/game_page.dart';
 import 'package:app_gokai/feature/home/util/app_bar.dart';
-import 'package:http/http.dart' as http;
 import 'package:app_gokai/feature/home/widget/list_card.dart';
 import 'package:flutter/material.dart';
 
@@ -13,26 +11,6 @@ class AppPage extends StatefulWidget {
 }
 
 class _AppPageState extends State<AppPage> {
-  dynamic data;
-  Future getData() async {
-    try {
-      var res = await http
-          .get(Uri.parse('https://aponali.github.io/api/allapon.json'));
-      setState(() {
-        var decode = json.decode(res.body).cast<Map<String, dynamic>>();
-        data = decode;
-      });
-    } catch (e) {
-      //
-    }
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getData();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +22,7 @@ class _AppPageState extends State<AppPage> {
           AppBarUtil(),
         ],
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -66,6 +44,97 @@ class _AppPageState extends State<AppPage> {
               appName: 'allappname',
               appImage: 'allappimage',
               apiurl: 'https://aponali.github.io/api/allapon.json',
+              appUrl: 'allurl',
+            ),
+            ListCard(
+              listName: 'Popular',
+              appName: 'allappname',
+              appImage: 'allappimage',
+              apiurl: 'https://apon10510.github.io/api/country.json',
+              appUrl: 'allurl',
+            ),
+            ListCard(
+              listName: 'Popular',
+              appName: 'allappname',
+              appImage: 'allappimage',
+              apiurl: 'https://aponali.github.io/api/allapon.json',
+              appUrl: 'allurl',
+            ),
+            ListCard(
+              listName: 'Popular',
+              appName: 'allappname',
+              appImage: 'allappimage',
+              apiurl: 'https://apon10510.github.io/api/country.json',
+              appUrl: 'allurl',
+            ),
+            ListCard(
+              listName: 'Popular',
+              appName: 'allappname',
+              appImage: 'allappimage',
+              apiurl: 'https://aponali.github.io/api/allapon.json',
+              appUrl: 'allurl',
+            ),
+            ListCard(
+              listName: 'Popular',
+              appName: 'allappname',
+              appImage: 'allappimage',
+              apiurl: 'https://apon10510.github.io/api/country.json',
+              appUrl: 'allurl',
+            ),
+            ListCard(
+              listName: 'Popular',
+              appName: 'allappname',
+              appImage: 'allappimage',
+              apiurl: 'https://aponali.github.io/api/allapon.json',
+              appUrl: 'allurl',
+            ),
+            ListCard(
+              listName: 'Popular',
+              appName: 'allappname',
+              appImage: 'allappimage',
+              apiurl: 'https://apon10510.github.io/api/country.json',
+              appUrl: 'allurl',
+            ),
+            ListCard(
+              listName: 'Popular',
+              appName: 'allappname',
+              appImage: 'allappimage',
+              apiurl: 'https://aponali.github.io/api/allapon.json',
+              appUrl: 'allurl',
+            ),
+            ListCard(
+              listName: 'Popular',
+              appName: 'allappname',
+              appImage: 'allappimage',
+              apiurl: 'https://apon10510.github.io/api/country.json',
+              appUrl: 'allurl',
+            ),
+            ListCard(
+              listName: 'Popular',
+              appName: 'allappname',
+              appImage: 'allappimage',
+              apiurl: 'https://aponali.github.io/api/allapon.json',
+              appUrl: 'allurl',
+            ),
+            ListCard(
+              listName: 'Popular',
+              appName: 'allappname',
+              appImage: 'allappimage',
+              apiurl: 'https://apon10510.github.io/api/country.json',
+              appUrl: 'allurl',
+            ),
+            ListCard(
+              listName: 'Popular',
+              appName: 'allappname',
+              appImage: 'allappimage',
+              apiurl: 'https://aponali.github.io/api/allapon.json',
+              appUrl: 'allurl',
+            ),
+            ListCard(
+              listName: 'Popular',
+              appName: 'allappname',
+              appImage: 'allappimage',
+              apiurl: 'https://apon10510.github.io/api/country.json',
               appUrl: 'allurl',
             ),
           ],
